@@ -19,7 +19,6 @@ workflows:
       - name: Build Andriod APK & ABB
         script: |
           flutter build apk --release
-          flutter build appbundle   
 
    
     
