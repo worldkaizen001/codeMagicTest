@@ -7,6 +7,8 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
+      groups:
+        - google_credentials
     scripts:
 
       - name: Install dependencies
