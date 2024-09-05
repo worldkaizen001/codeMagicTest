@@ -39,19 +39,23 @@ Future<void> _getBatteryLevel() async {
     print("Failed to get battery level: '${e.message}'.");
   }
 }
-            Animal animal = Animal(name: 'bired');
+  Animal animal = Animal(name: 'bired');
 
-          final  double _count = 0;
-          double get counter => _count;
+final  double _count = 0;
+double get counter => _count;
+
+String title = "";
 
   @override
   Widget build(BuildContext context) {
+   var titled = ModalRoute.of(context)!.settings.arguments;
+
     log('THIS IS A LOG!!!!!!');
     // Generate a key
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: const Text("With Restoration Page"),
+        title:  Text("Form Restoration $titled"),
       ),
       body: Center(
         child: Padding(
@@ -60,13 +64,17 @@ Future<void> _getBatteryLevel() async {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              
               OutlinedButton.icon(onPressed: (){
            
           animal.canReallyFly();
           animal.canJump();
          
               }, label: const Icon(Icons.abc)),
-              const Text(
+               const Text(
+                semanticsLabel: 'Reegister Text',
+
+                
                 'Register Screen',
                 
                 style: TextStyle(fontSize: 30),

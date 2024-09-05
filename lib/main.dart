@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:senior/tflow.dart';
+import 'package:senior/topics/classes.dart';
 import 'package:senior/topics/state_restoration/form_restoration.dart';
 
 void main() {
@@ -53,6 +55,7 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -60,6 +63,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with RestorationMixin  {
  
   final RestorableInt _counter = RestorableInt(0);
+    Human person1 = Human(name: 'faith', age: 6);
+
 
 
   void _incrementCounter() {
@@ -110,7 +115,8 @@ class _MyHomePageState extends State<MyHomePage> with RestorationMixin  {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(''),
+            
+            Text(person1.age.toString()),
             const Text(
               
               'You have pushed the button this many times:',
@@ -128,15 +134,30 @@ class _MyHomePageState extends State<MyHomePage> with RestorationMixin  {
            FloatingActionButton(
             
             onPressed: (){
+              person1.canMove();
             
-//               Navigator.push(context, MaterialPageRoute(builder: (context)=> const PageWithRestoration()
-// ));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const PageWithRestoration(),
+              settings: const RouteSettings(arguments: 
+                "test name"
+              )
+));
             },
             child: const Icon(Icons.flaky),
           ),
           FloatingActionButton(
             
             onPressed: _incrementCounter,
+
+            child: const Icon(Icons.add),
+          ),
+           FloatingActionButton(
+            
+            onPressed:(){
+               Navigator.push(context, MaterialPageRoute(builder: (context) => const TFlowPage(),
+              settings: const RouteSettings(arguments: 
+                "test name"
+              )));
+            },
 
             child: const Icon(Icons.add),
           ),
@@ -147,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> with RestorationMixin  {
 
    static Route<void> _dialogRoute(BuildContext context, Object? arguments) {
     return MaterialPageRoute<void>(
-      builder: (BuildContext context) => PageWithRestoration(),
+      builder: (BuildContext context) => const PageWithRestoration(),
     );
   }
   
