@@ -40,5 +40,8 @@ workflows:
       email:
         recipients:
           - aigbekelvin@gmail.com
+      google_play:
+        credentials: $GoogleServicesAccount
+        track: internal
    
     
