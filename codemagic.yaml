@@ -31,6 +31,14 @@ workflows:
         script: |
           flutter build apk --release
           flutter build appbundle
+    
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
 
+    publishing:
+      email:
+        recipients:
+          - aigbekelvin@gmail.com
    
     
