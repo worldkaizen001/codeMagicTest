@@ -12,7 +12,7 @@ workflows:
     scripts:
       - name: Setup the keystore
         script: |
-          echo $KEYSTORE_FILE | base64 --decode > /tmp/senior-keystore.jks
+          echo $KeyStoreFile | base64 --decode > /tmp/senior-keystore.jks
           cat >> "$CM_BUILD_DIR/android/key.properties" << EOF
           storePassword=$Store_Password
           keyPassword=$Key_Password
