@@ -10,6 +10,15 @@ workflows:
       groups:
         - google_credentials
     scripts:
+      - name: Setup the keystore
+        script: |
+          echo $KEYSTORE_FILE | base64 --decode > /tmp/senior-keystore.jks
+          cat >> "$CM_BUILD_DIR/android/key.properties" << EOF
+          storePassword=$Store_Password
+          keyPassword=$Key_Password
+          keyAlias=$keyStore_alias
+          storeFile=/tmp/senior-keystore.jks
+          EOF
 
       - name: Install dependencies
         script: flutter pub get  
